@@ -129,8 +129,8 @@ func EncryptKey(password string, privateKey PrivateKey) ([]byte, error) {
 	binary.LittleEndian.PutUint16(bytes[4:], blake2bAlgorithm)
 
 	const ( // TODO(aead): Callers may want to customize the cost parameters
-		defaultOps = 33554432   // libsodium OPS_LIMIT_SENSITIVE
-		defaultMem = 1073741824 // libsodium MEM_LIMIT_SENSITIVE
+		defaultOps = 3355443   // libsodium OPS_LIMIT_SENSITIVE
+		defaultMem = 57374182 // libsodium MEM_LIMIT_SENSITIVE
 	)
 	copy(bytes[6:38], salt[:])
 	binary.LittleEndian.PutUint64(bytes[38:], defaultOps)
